@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="page-description">{{ .Pages | len }} {{ if eq (.Pages | len) 1 }}post{{ else }}posts{{ end }} tagged with "{{ .Title }}"</p>
+  </div>
+  
+  <div class="catalog">
+    <div class="catalog-table">
+      {{ range .Pages }}
+      <div class="catalog-row">
+        <div class="catalog-timestamp">
+          {{ $weekStart := .Date.AddDate 0 0 (int (sub 1 (int .Date.Weekday))) }}
+          <a href="/archive/{{ .Date.Format "2006" }}/week-{{ printf "%02d" (.Date.YearDay | div 7 | add 1) }}/">
+            {{ .Date.Format "Mon" }}
+          </a>
+          <a href="/archive/{{ .Date.Format "2006" }}/{{ .Date.Format "01" }}/">
+            {{ .Date.Format "Jan" }}
+          </a>
+          <a href="/archive/{{ .Date.Format "2006" }}/">
+            {{ .Date.Format "02 2006" }}
+          </a>
+          <span>{{ .Date.Format "15:04" }}</span>
+        </div>
+        
+        <div class="catalog-title">
+          <a href="{{ .Permalink }}">
+            {{ if .Title }}
+              {{ .Title }}
+            {{ else }}
+              {{ .Date.Format "Untitled - Jan 02, 2006" }}
+            {{ end }}
+          </a>
+        </div>
+        
+        <div class="catalog-tag">
+          {{ with index .Params.tags 0 }}
+            <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

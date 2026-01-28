@@ -1,0 +1,27 @@
+# CSV Changelog Theme Configuration
+# Based on Bear theme, customized for document-focused tabulated changelog layout
+
+name = "CSV Changelog"
+license = "MIT"
+licenselink = "https://github.com/microdotblog/theme-bear/blob/master/LICENSE"
+description = "A minimal, document-focused changelog theme for micro.blog"
+homepage = "https://github.com/yourusername/csv-changelog-theme"
+tags = ["minimal", "clean", "responsive", "blog"]
+features = ["posts", "pages", "search"]
+min_version = "0.1"
+
+[author]
+  name = "Your Name"
+  homepage = "https://csv.micro.blog"
+
+[params]
+  # Site description for meta tags
+  description = "comma separated values - a functional blog"
+  
+  # Social links (optional)
+  # twitter = "yourusername"
+  # github = "yourusername"
+  # mastodon = "https://mastodon.social/@yourusername"
+  
+  # Enable MicroPub
+  MicroPub = true
