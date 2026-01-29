@@ -5,9 +5,7 @@
       {{ range .Pages }}
       <div class="catalog-row">
         <div class="catalog-timestamp">
-          {{ $weekStart := .Date.AddDate 0 0 (int (sub 1 (int .Date.Weekday))) }}
-          {{ $weekEnd := $weekStart.AddDate 0 0 6 }}
-          <a href="/archive/{{ .Date.Format "2006" }}/week-{{ printf "%02d" (.Date.YearDay | div 7 | add 1) }}/" title="Week of {{ $weekStart.Format "Jan 02" }}">
+          <a href="/archive/{{ .Date.Format "2006" }}/week-{{ printf "%02d" (div .Date.YearDay 7 | add 1) }}/" title="Week of {{ .Date.Format "Jan 02" }}">
             {{ .Date.Format "Mon" }}
           </a>
           <a href="/archive/{{ .Date.Format "2006" }}/{{ .Date.Format "01" }}/" title="{{ .Date.Format "January 2006" }}">
