@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="container">
+  <div class="catalog">
+    <div class="catalog-table">
+      {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{ range $paginator.Pages }}
+      <div class="catalog-row">
+        <div class="catalog-timestamp">
+          <a href="/archive/{{ .Date.Format "2006" }}/week-{{ printf "%02d" (div .Date.YearDay 7 | add 1) }}/" title="Week of {{ .Date.Format "Jan 02" }}">
+            {{ .Date.Format "Mon" }}
+          </a>
+          <a href="/archive/{{ .Date.Format "2006" }}/{{ .Date.Format "01" }}/" title="{{ .Date.Format "January 2006" }}">
+            {{ .Date.Format "Jan" }}
+          </a>
+          <a href="/archive/{{ .Date.Format "2006" }}/" title="{{ .Date.Format "2006" }}">
+            {{ .Date.Format "02 2006" }}
+          </a>
+          <span>{{ .Date.Format "15:04" }}</span>
+        </div>
+        
+        <div class="catalog-title">
+          <a href="{{ .Permalink }}">
+            {{ if .Title }}
+              {{ .Title }}
+            {{ else }}
+              {{ .Date.Format "Untitled - Jan 02, 2006" }}
+            {{ end }}
+          </a>
+        </div>
+        
+        <div class="catalog-tag">
+          {{ with index .Params.tags 0 }}
+            <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  
+  {{ if $paginator.HasPrev }}
+  <div style="margin-top: 2rem;">
+    <a href="{{ $paginator.Prev.URL }}">← Newer</a>
+    {{ if $paginator.HasNext }}
+    <span style="margin: 0 1rem;">|</span>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Older →</a>
+    {{ end }}
+  </div>
+  {{ else if $paginator.HasNext }}
+  <div style="margin-top: 2rem;">
+    <a href="{{ $paginator.Next.URL }}">Older →</a>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
