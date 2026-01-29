@@ -188,14 +188,6 @@ Add pages to the navbar in your `config.toml`:
   weight = 2
 ```
 
-## Ethos Alignment
-
-This theme was designed with these principles:
-
-1. **Be weird and avoid masking**: The design is functional, not fashionable
-2. **Stay grounded in real observations**: Document-focused structure reflects how we actually organize information
-3. **Continually undermine artifices**: No styling for styling's sake; everything serves function
-
 ## Browser Support
 
 - Modern browsers (Chrome, Firefox, Safari, Edge)
