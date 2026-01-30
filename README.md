@@ -1,211 +1,83 @@
-# CSV Changelog Theme
+# Hugo ʕ•ᴥ•ʔ Bear Blog
 
-A minimal, document-focused changelog theme for micro.blog that treats your blog as a functional source of documents.
+🧸 A [Hugo](https://gohugo.io/)-theme based on [Bear Blog](https://bearblog.dev).
 
-## Design Philosophy
+> Free, no-nonsense, super-fast blogging.
 
-This theme reimagines a blog as a tabulated changelog with two primary views:
+## Demo
 
-- **Catalog View**: A spreadsheet-like listing of posts for browsing and discovery
-- **Record View**: Individual post pages for content engagement
+For a current & working demo of this theme, please check out https://janraasch.github.io/hugo-bearblog/ 🎯.
 
-The design emphasizes:
-- Functional document presentation over stylistic flourish
-- Quick scanning and navigation
-- Consistent left-alignment anchored to the blog title
-- Minimal formatting that respects readability best practices
+## Screenshots
 
-## Features
+⬜️ [Light][light-screenshot]
 
-### Catalog View (Homepage, Tags, Collections)
-- Tabulated three-column layout: timestamp | title | tag
-- Timestamps link to time-based archives (week/month/year)
-- Text-forward, tidy rows with single-line height
-- Responsive mobile layout stacks timestamp above title+tag
-- Ellipsis text clipping for long titles
+⬛️ [Dark][dark-screenshot]
 
-### Record View (Individual Posts)
-- Clean, readable single-column layout
-- Metadata pushed to periphery
-- Annotations section for external links, attachments, cross-references
-- Collections section for tags and project associations
-- Max-width content area for optimal reading
+When the user's browser is running »dark mode«, the dark color scheme will be used automatically. The default is the light/white color scheme. Check out the [`style.html`](https://github.com/janraasch/hugo-bearblog/blob/master/layouts/partials/style.html)-file for the implementation.
 
-### Navigation
-- Simple text navbar with blog title as home link
-- Right-justified pill-shaped search bar that expands on focus
-- Quick access to projects and collections (tags)
-- Mobile-responsive with stacked layout
-
-### Footer
-- Single-row layout with title, links, social icons, copyright
-- Consistent left alignment
-- Minimal height (~50px)
+<img src="https://raw.githubusercontent.com/janraasch/hugo-bearblog/master/images/screenshot.png">
 
 ## Installation
 
-### For Micro.blog
-
-1. Download or clone this theme
-2. In Micro.blog, go to Design → Edit Custom Themes
-3. Click "New Theme" and upload the theme files
-4. Activate the theme from Design → Edit Custom Themes
-
-### Manual Installation
-
-If you're running Hugo locally:
-
-```bash
-cd your-site
-git clone https://github.com/yourusername/csv-changelog-theme themes/csv-changelog
-```
-
-Then update your `config.toml`:
-
-```toml
-theme = "csv-changelog"
-```
-
-## Configuration
-
-Add these parameters to your site's `config.toml`:
-
-```toml
-[params]
-  description = "Your blog description"
-  
-  # Optional social links
-  twitter = "yourusername"
-  github = "yourusername"
-  mastodon = "https://mastodon.social/@yourusername"
-  
-  # Enable MicroPub (for Micro.blog)
-  MicroPub = true
-```
-
-## Post Front Matter
-
-### Standard Posts
-
-```yaml
----
-title: "Your Post Title"
-date: 2026-01-28T10:00:00-07:00
-tags:
-  - tag1
-  - tag2
----
-```
-
-### Posts with Annotations
-
-```yaml
----
-title: "Post with External Resources"
-date: 2026-01-28T10:00:00-07:00
-tags:
-  - research
-external_links:
-  - title: "Source Article"
-    url: "https://example.com/article"
-  - title: "Related Study"
-    url: "https://example.com/study"
-attachments:
-  - "/uploads/document.pdf"
-related_posts:
-  - "/posts/previous-post/"
----
-```
-
-### Project Posts
-
-```yaml
----
-title: "Your Project"
-date: 2026-01-28T10:00:00-07:00
-type: project
-status: active
-project: project-name
-tags:
-  - tag1
----
-```
-
-## Customization
-
-### Colors and Typography
-
-Edit `/static/css/custom.css` and modify the CSS variables:
-
-```css
-:root {
-  --text-primary: #1a1a1a;
-  --text-secondary: #666;
-  --link-color: #0066cc;
-  --border-subtle: #e0e0e0;
-  --bg-primary: #ffffff;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
-}
-```
-
-### Layout Spacing
-
-Adjust the spacing variables:
-
-```css
-:root {
-  --max-width: 1200px;
-  --left-anchor: 2rem;
-  --spacing-unit: 1rem;
-}
-```
-
-## Pages Structure
-
-The theme expects the following page structure:
+If you already have a Hugo site on your machine, you can simply add this theme via
 
 ```
-content/
-├── posts/           # Regular blog posts
-├── projects/        # Project pages
-└── pages/           # Static pages (about, etc.)
+git submodule add https://github.com/janraasch/hugo-bearblog.git themes/hugo-bearblog
 ```
 
-## Menu Configuration
+Then, adjust the `config.toml` as detailed below.
 
-Add pages to the navbar in your `config.toml`:
+For more information, read the official [setup guide][hugo-setup-guide] of Hugo.
 
-```toml
-[[menu.main]]
-  name = "About"
-  url = "/about/"
-  weight = 1
+## Adjust configuration / config.toml
 
-[[menu.main]]
-  name = "Now"
-  url = "/now/"
-  weight = 2
+Please check out the [config.toml](https://github.com/janraasch/hugo-bearblog/blob/master/exampleSite/config.toml) included in the [exampleSite](https://github.com/janraasch/hugo-bearblog/tree/master/exampleSite) of this theme.
+
+## Content & structure
+
+### Starting fresh
+
+If you are starting fresh, simply copy over the contents of the `exampleSite`-directory included in this theme to your source directory. That should give you a good idea about how things work, and then you can go on from there to make the site your own.
+
+### Adding / editing content
+
+#### Index-Page
+
+The contents of the `index`-page may be changed by editing your `content/_index.md`-file.
+
+#### Page
+
+You can add **a new page** via running
+
+```
+hugo new my-new-page.md
 ```
 
-## Ethos Alignment
+#### Blog-Post
 
-This theme was designed with these principles:
+You can add **a new blog-post** via running
 
-1. **Be weird and avoid masking**: The design is functional, not fashionable
-2. **Stay grounded in real observations**: Document-focused structure reflects how we actually organize information
-3. **Continually undermine artifices**: No styling for styling's sake; everything serves function
+```
+hugo new blog/my-new-post.md
+```
 
-## Browser Support
+### Adding your branding / colors / css
 
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Mobile responsive
-- Progressive enhancement approach
+Add a `custom_head.html`-file to your `layouts/partials`-directory. In there you may add a `<style>`-tag, *or* you may add a `<link>`-tag referencing your own `custom.css` (in case you prefer to have a separate `.css`-file). Check out the [`style.html`](https://github.com/janraasch/hugo-bearblog/blob/master/layouts/partials/style.html)-file to find out which CSS-styles are applied by default.
 
-## Credits
+## Issues / Feedback / Contributing
+Please use [GitHub issues](https://github.com/janraasch/hugo-bearblog/issues) and [Pull Requests](https://github.com/janraasch/hugo-bearblog/pulls).
 
-Based on the Bear theme by Micro.blog, redesigned as a functional document changelog.
+If you do not have a GitHub-account, please hit me up via e-mail (see [janraasch.com](https://www.janraasch.com)).
+
+## Special Thanks 🎁
+
+A special thank you goes out to [Herman](https://herman.bearblog.dev), for creating the original [ʕ•ᴥ•ʔ Bear Blog](https://bearblog.dev/).
 
 ## License
+[MIT License](http://en.wikipedia.org/wiki/MIT_License) © [Jan Raasch](https://www.janraasch.com)
 
-MIT License - see LICENSE file
+[hugo-setup-guide]: https://gohugo.io/getting-started/installing
+[light-screenshot]: https://raw.githubusercontent.com/janraasch/hugo-bearblog/master/images/screenshot.png
+[dark-screenshot]: https://raw.githubusercontent.com/janraasch/hugo-bearblog/master/images/screenshot-dark.png

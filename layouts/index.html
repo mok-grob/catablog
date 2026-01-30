@@ -1,42 +1,23 @@
 {{ define "main" }}
-<div class="container">
-  <div class="catalog">
-    <div class="catalog-table">
-      {{ range where .Site.RegularPages "Type" "posts" }}
-      <div class="catalog-row">
-        <div class="catalog-timestamp">
-          <a href="/archive/{{ .Date.Format "2006" }}/week-{{ printf "%02d" (div .Date.YearDay 7 | add 1) }}/" title="Week of {{ .Date.Format "Jan 02" }}">
-            {{ .Date.Format "Mon" }}
-          </a>
-          <a href="/archive/{{ .Date.Format "2006" }}/{{ .Date.Format "01" }}/" title="{{ .Date.Format "January 2006" }}">
-            {{ .Date.Format "Jan" }}
-          </a>
-          <a href="/archive/{{ .Date.Format "2006" }}/" title="{{ .Date.Format "2006" }}">
-            {{ .Date.Format "02 2006" }}
-          </a>
-          <span>{{ .Date.Format "15:04" }}</span>
+
+<div class="h-feed">
+	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+	{{ range $paginator.Pages  }}
+        <div class="h-entry">
+			{{ if .Title }}
+			<h1 class="">
+				<a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a>
+			</h1>
+			{{ end }}
+			<div class="e-content">{{ .Content }}</div>
+
+            <p>
+		<a href="{{ .Permalink }}" class="u-url">
+		<i><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "2 Jan, 2006" }}</time></i>
+            </a>
+		</p>
         </div>
-        
-        <div class="catalog-title">
-          <a href="{{ .Permalink }}">
-            {{ if .Title }}
-              {{ .Title }}
-            {{ else }}
-              {{ .Plain | truncate 30 }}
-            {{ end }}
-          </a>
-        </div>
-        
-        <div class="catalog-tag">
-          {{ if .Params.tags }}
-            {{ with index .Params.tags 0 }}
-              <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
-            {{ end }}
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
+    {{ end }}
 </div>
+
 {{ end }}

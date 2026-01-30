@@ -1,51 +1,9 @@
 {{ define "main" }}
-<div class="container">
-  <article class="record-view">
-    <header class="record-header">
-      <div class="record-timestamp">
-        {{ .Date.Format "Monday, January 02, 2006 15:04" }}
-      </div>
-      {{ if .Title }}
-      <h1 class="record-title">{{ .Title }}</h1>
-      {{ end }}
-    </header>
-    
-    <div class="record-content">
-      {{ .Content }}
-    </div>
-    
-    {{ $hasAnnotations := or .Params.external_links .Params.attachments .Params.related_posts }}
-    {{ if $hasAnnotations }}
-    <div class="record-annotations">
-      <span class="record-annotations-label">annotations:</span>
-      <div class="record-annotations-list">
-        {{ range .Params.external_links }}
-          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
-        {{ end }}
-        {{ range .Params.attachments }}
-          <a href="{{ . }}" download>{{ . | path.Base }}</a>
-        {{ end }}
-        {{ range .Params.related_posts }}
-          <a href="{{ . }}">{{ . | path.Base }}</a>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-    
-    {{ $hasCollections := or .Params.project .Params.tags }}
-    {{ if $hasCollections }}
-    <div class="record-collections">
-      <span class="record-collections-label">collections:</span>
-      <div class="record-collections-list">
-        {{ with .Params.project }}
-          <a href="/projects/{{ . | urlize }}/">{{ . }}</a>
-        {{ end }}
-        {{ range .Params.tags }}
-          <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-  </article>
-</div>
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<p>
+  {{ range (.GetTerms "tags") }}
+  <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+  {{ end }}
+</p>
 {{ end }}
