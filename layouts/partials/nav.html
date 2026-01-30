@@ -1,4 +1,4 @@
-<a href="{{ "/" | relURL }}">home</a>
+<a href="{{ "/" | relURL }}">{{ .Title }}</a>
 {{ range .Site.Menus.main }}
 <a href="{{ .URL }}">{{ .Name }}</a>
 {{ end }}
