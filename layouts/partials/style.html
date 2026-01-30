@@ -13,8 +13,14 @@
   }
 
   header {
-    padding-bottom: 15px;
-	margin-bottom: 10px;
+    display: flex;
+	align-items: basline;
+	gap: 2rem;
+	padding-bottom: 15px;
+  }
+  
+  header nav {
+	  
   }
 
   h1,
@@ -39,10 +45,11 @@
     /*color: #ff5e6c;*/
   }
 
-  .title {
+  .title h2 {
     text-decoration: none;
     border: 0;
 	white-space: nowrap;
+	font-weight: 500 !important;
   }
   
   .title:hover {
@@ -168,7 +175,15 @@ table.changelog td {
 }
 
 table.changelog td.timestamp {
-  width: 275px;
+  width: auto !important;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666 !important;
+  
+}
+
+table.changelog td.timestamp a {
   font-size: 14px;
   font-weight: 400;
   color: #666 !important;
