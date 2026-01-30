@@ -1,9 +1,9 @@
 <style>
   body {
-    font-family: Verdana, sans-serif;
+    font-family: monospace;
     margin: auto;
     padding: 20px;
-    max-width: 720px;
+    max-width: 850px;
     text-align: left;
     background-color: #fff;
     word-wrap: break-word;
@@ -13,7 +13,7 @@
   }
 
   header {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
 
   h1,
@@ -24,17 +24,19 @@
   h6,
   strong,
   b {
-    color: #222;
+    color: #111;
   }
 
-  a {
+  a:hover {
     color: #3273dc;
+	text-decoration: underline;
     /*color: #ff5e6c;*/
   }
 
   .title {
     text-decoration: none;
     border: 0;
+	white-space: nowrap;
   }
 
   .title span {
@@ -43,11 +45,12 @@
 
   nav a {
     margin-right: 10px;
+	color: #3273dc;
   }
 
   textarea {
     width: 100%;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   input {
@@ -55,7 +58,7 @@
   }
 
   content {
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   table {
@@ -106,6 +109,7 @@
   footer {
     padding: 25px;
     text-align: center;
+	height: 50px;
   }
 
   .helptext {
@@ -143,40 +147,32 @@ table.changelog {
 }
 
 table.changelog tr {
-  border-bottom: 1px solid #eee;
+  border-bottom: 0;
 }
 
 table.changelog td {
   padding: 0.5rem 0;
   vertical-align: center;
+  text-align: center;
 }
 
 table.changelog td.timestamp {
   width: 140px;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: #666;
-}
-
-table.changelog td.timestamp a {
-  text-decoration: none;
-  color: inherit;
 }
 
 table.changelog td.post-title a {
   text-decoration: none;
   font-family: monospace;
-  font-size: 13px;
+  font-size: 14px;
   color: #222;
-  font-weight: 550;
+  font-weight: 600;
 }
 
 table.changelog td.post-title a:hover {
-  text-decoration: underline;
-  font-family: monospace;
-  font-size: 13px;
-  color: #111;
   font-weight: 550;
 }
 
