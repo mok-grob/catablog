@@ -1,22 +1,23 @@
 {{ define "main" }}
-
-<div class="h-feed">
+<table class="changelog">
 	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
 	{{ range $paginator.Pages  }}
-        <div class="h-entry">
+	<tr class="h-entry">
+		<td class="timestamp">
 			<a href="{{ .Permalink }}" class="u-url">
-		<i><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "2 Jan, 2006" }}</time></i>
-            </a>
+				<time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
+					{{ .Date.Format "2006-01-02 15:04" }}
+				</time>
+			</a>
+		</td>
+		<td class="post-title">
 			{{ if .Title }}
-			<h3 class="">
 				<a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a>
-			</h3>
+			{{ else }}
+				<a href="{{ .Permalink }}" class="p-name">Untitled</a>
 			{{ end }}
-			<div class="e-content">{{ .Content }}</div>
-
-			
-        </div>
-    {{ end }}
-</div>
-
+		</td>
+	</tr>
+	{{ end }}
+</table>
 {{ end }}

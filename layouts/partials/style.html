@@ -135,6 +135,47 @@
   ul.blog-posts li a:visited {
     color: #8b6fcb;
   }
+  
+  /* changelog table */
+table.changelog {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.changelog tr {
+  border-bottom: 1px solid #eee;
+}
+
+table.changelog td {
+  padding: 0.5rem 0;
+  vertical-align: top;
+}
+
+table.changelog td.timestamp {
+  width: 140px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #666;
+}
+
+table.changelog td.timestamp a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table.changelog td.post-title a {
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  table.changelog tr {
+    border-bottom: 1px solid #555;
+  }
+  
+  table.changelog td.timestamp {
+    color: #aaa;
+  }
+}
 
   .microblog_conversation {
     margin-top: 50px;
