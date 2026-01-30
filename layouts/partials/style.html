@@ -13,7 +13,8 @@
   }
 
   header {
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+	display: inline;
   }
 
   h1,
@@ -25,6 +26,7 @@
   strong,
   b {
     color: #111;
+	margin: 5px 0 !important;
   }
 
   a {
@@ -42,6 +44,10 @@
     text-decoration: none;
     border: 0;
 	white-space: nowrap;
+  }
+  
+  .title:hover {
+	  text-decoration: none;
   }
 
   .title span {
@@ -158,27 +164,34 @@ table.changelog tr {
 table.changelog td {
   padding: 0.5rem 0;
   vertical-align: center;
-  text-align: center;
+  text-align: left;
 }
 
 table.changelog td.timestamp {
-  width: 140px;
+  width: auto;
+  white-space: nowrap;  
   font-family: monospace;
   font-size: 14px;
   font-weight: 400;
-  color: #666;
+  color: #666 !important;
+  
 }
 
 table.changelog td.post-title a {
+  width: auto;
   text-decoration: none;
   font-family: monospace;
   font-size: 14px;
   color: #222;
-  font-weight: 600;
+  font-weight: 550;
+  text-transform: uppercase;
 }
 
 table.changelog td.post-title a:hover {
-  font-weight: 550;
+  font-weight: 600;
+  color: #111;
+  text-decoration: underline;
+  
 }
 
 @media (prefers-color-scheme: dark) {
