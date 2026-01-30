@@ -4,18 +4,17 @@
 	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
 	{{ range $paginator.Pages  }}
         <div class="h-entry">
+			<a href="{{ .Permalink }}" class="u-url">
+		<i><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "2 Jan, 2006" }}</time></i>
+            </a>
 			{{ if .Title }}
-			<h1 class="">
+			<h3 class="">
 				<a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a>
-			</h1>
+			</h3>
 			{{ end }}
 			<div class="e-content">{{ .Content }}</div>
 
-            <p>
-		<a href="{{ .Permalink }}" class="u-url">
-		<i><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "2 Jan, 2006" }}</time></i>
-            </a>
-		</p>
+			
         </div>
     {{ end }}
 </div>
