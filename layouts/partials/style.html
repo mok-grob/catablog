@@ -148,13 +148,14 @@ table.changelog tr {
 
 table.changelog td {
   padding: 0.5rem 0;
-  vertical-align: top;
+  vertical-align: center;
 }
 
 table.changelog td.timestamp {
   width: 140px;
   font-family: monospace;
   font-size: 12px;
+  font-weight: 400;
   color: #666;
 }
 
@@ -166,8 +167,17 @@ table.changelog td.timestamp a {
 table.changelog td.post-title a {
   text-decoration: none;
   font-family: monospace;
-  font-size: 12px;
-  color: #333;
+  font-size: 13px;
+  color: #222;
+  font-weight: 550;
+}
+
+table.changelog td.post-title a:hover {
+  text-decoration: underline;
+  font-family: monospace;
+  font-size: 13px;
+  color: #111;
+  font-weight: 550;
 }
 
 @media (prefers-color-scheme: dark) {
