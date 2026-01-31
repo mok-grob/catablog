@@ -1,8 +1,7 @@
 {{ define "main" }}
 <table class="changelog">
+	{{ $paginator := .Paginate }}
 	{{ range $paginator.Pages  }}
-	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
-	
 	<td class="post-title">
 			{{ if .Title }}
 				<a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a>
