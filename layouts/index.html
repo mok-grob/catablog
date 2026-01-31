@@ -1,15 +1,16 @@
 {{ define "main" }}
 <table class="changelog">
-	{{ $paginator := .Paginate }}
+	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
 	{{ range $paginator.Pages  }}
-	<td class="post-title">
+	<tr class="h-entry">
+		<td class="post-title">
 			{{ if .Title }}
 				<a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a>
 			{{ else }}
 				<a href="{{ .Permalink }}" class="p-name">Untitled</a>
 			{{ end }}
 		</td>
-	<tr class="h-entry">
+	
 		<td class="timestamp">
 			<a href="{{ .Permalink }}" class="u-url">
 				<time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">
