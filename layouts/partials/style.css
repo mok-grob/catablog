@@ -3,6 +3,7 @@
    ============================================================ */
 
 /* --- VARIABLES (LIGHT) ---------------------------------------- */
+<style>
 :root {
   --timestamp-width: 100px;
 
@@ -286,3 +287,5 @@ ul.blog-posts li a:visited {
     margin: 2px 0 0.5rem;
   }
 }
+
+</style>
