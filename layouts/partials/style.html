@@ -1,4 +1,13 @@
 <style>
+
+
+:root {
+	--hcol: #111;
+	--txtcol: #000;
+	--backcol: white;
+	--highlight: yellow;
+	--linkcol: #3273dc;
+ }
   body {
     font-family: monospace;
     margin: auto;
@@ -206,18 +215,22 @@ table.changelog td.post-title a:hover {
 
 @media (prefers-color-scheme: dark) {
   table.changelog tr {
-    border-bottom: 1px solid blue;
+    border-bottom: 0;
   }
   
   table.changelog td.timestamp {
     color: blue;
+  }
+  
+  table.changelog td.post-title {
+	  color: white;
   }
 }
 
   .microblog_conversation {
     margin-top: 50px;
     padding-top: 20px;
-    border-top: 1px dashed blue;
+    border-top: 1px dashed white;
   }
 
   .microblog_post {
@@ -262,15 +275,15 @@ table.changelog td.post-title a:hover {
     }
 
     code {
-      background-color: #777;
+      background-color: black;
     }
 
     pre code {
-      color: #ddd;
+      color: white;
     }
 
     blockquote {
-      color: #ccc;
+      color: white;
     }
 
     textarea,
@@ -284,11 +297,11 @@ table.changelog td.post-title a:hover {
     }
 
     .microblog_conversation {
-      border-top: 1px dashed #ddd;
+      border-top: 1px dashed white;
     }
 
     .microblog_time a {
-      color:#ddd;
+      color: white;
     }
   }
 
