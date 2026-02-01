@@ -6,16 +6,29 @@
 /* --- VARIABLES (LIGHT) ---------------------------------------- */
 
 :root {
+  --black: black;
+  --darkgrey: #050505;
+  --charcoal: #101010;
+  --medgrey: #505050;
+  --grey: #696969;
+  --lightgrey: #B0B0B0;
+  --silver: silver;
+  --whitesmoke: #f2f2f2;
+  --white: white;
+  --highlighter: #e2d303;
+  --eblue: #0033cc;
+  --ebluelight: #3385ff;
+ 	
   --timestamp-width: 100px;
 
-  --color-bg:          #fff;
-  --color-text:        #000;
-  --color-heading:     #111;
-  --color-link:        #3273dc;
-  --color-link-hover:  #3273dc;
-  --color-visited:     #8b6fcb;
-  --color-brand-bg:    #f5e642;
-  --color-timestamp:   #94a3b8;
+  --color-bg:          var(--white);
+  --color-text:        var(--charcoal);
+  --color-heading:     var(--darkgrey);
+  --color-link:        var(--eblue);
+  --color-link-hover:  var(--eblue);
+  --color-visited:     var(--ebluelight);
+  --color-brand-bg:    var(--highlighter);
+  --color-timestamp:   var(--lightgrey);
   --color-code-bg:     #f2f2f2;
   --color-quote-border:#999;
   --color-quote-text:  #222;
@@ -32,14 +45,14 @@
 /* --- VARIABLES (DARK) ----------------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg:          #111;
-    --color-text:        #eee;
-    --color-heading:     #fff;
-    --color-link:        #8cc2dd;
-    --color-link-hover:  #8cc2dd;
-    --color-visited:     #8b6fcb;
-    --color-brand-bg:    #b8a800;
-    --color-timestamp:   #6b7a8d;
+    --color-bg:          var(--darkgrey);
+    --color-text:        var(--whitesmoke);
+    --color-heading:     var(--white);
+    --color-link:        var(--ebluelight);
+    --color-link-hover:  var(--ebluelight);
+    --color-visited:     var(--ebluelight);
+    --color-brand-bg:    var(--highlighter);
+    --color-timestamp:   var(--grey);
     --color-code-bg:     #222;
     --color-quote-border:#666;
     --color-quote-text:  #ccc;
@@ -114,16 +127,19 @@ header {
   white-space:    nowrap;
   font-weight:    500;
 }
+.title h2:hover {
+	text-decoration: none;
+}
 
 nav a {
-  margin-right: 10px;
+  margin-right: 8px;
   font-size:    15px;
   font-style:   italic;
   color:        var(--color-link);
-  outline:      0;
 }
 
 /* --- MAIN / FOOTER -------------------------------------------- */
+
 main {
   margin-top: 15px;
   flex:       1;
@@ -158,6 +174,7 @@ div.highlight code {
   color:            unset;
 }
 
+
 /* --- BLOCKQUOTE ---------------------------------------------- */
 blockquote {
   border-left: 1px solid var(--color-quote-border);
@@ -165,6 +182,7 @@ blockquote {
   padding-left: 20px;
   font-style:  italic;
 }
+
 
 /* --- CHANGELOG TABLE ----------------------------------------- */
 table.changelog {
@@ -189,15 +207,15 @@ table.changelog td.timestamp a {
   text-decoration: none;
 }
 table.changelog td.timestamp a:hover {
-  color:       var(--color-timestamp);
-  text-decoration: none;
+  color:       var(--color-link);
+  text-decoration: underline;
   font-weight: 400;
 }
 table.changelog td.post-title a {
   text-decoration: none;
   font-size:       14px;
   color:           var(--color-heading);
-  font-weight:     550;
+  font-weight:     500;
   text-transform:  uppercase;
 }
 table.changelog td.post-title a:hover {
@@ -205,6 +223,15 @@ table.changelog td.post-title a:hover {
   color:           var(--color-heading);
   text-decoration: underline;
 }
+
+/* --- STATIC PAGES -------------------------------------------- */
+/* single post: remove header indent */
+@media (min-width: 750px) {
+  body:not(:has(.changelog)) header {
+    margin-left: 0;
+  }
+}
+
 
 /* --- MICROBLOG CONVERSATION ---------------------------------- */
 .microblog_conversation {
@@ -228,6 +255,7 @@ table.changelog td.post-title a:hover {
   color:           var(--color-microblog-time);
   text-decoration: none;
 }
+
 
 /* --- UTILITY ------------------------------------------------- */
 .helptext {
@@ -255,6 +283,8 @@ ul.blog-posts li a:visited {
   color: var(--color-visited);
 }
 */
+
+
 
 /* --- MOBILE -------------------------------------------------- */
 @media (max-width: 749px) {
