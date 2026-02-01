@@ -22,8 +22,8 @@
   --timestamp-width: 100px;
 
   --color-bg:          var(--white);
-  --color-text:        var(--charcoal);
-  --color-heading:     var(--darkgrey);
+  --color-text:        var(--medgrey);
+  --color-heading:     var(--charcoal);
   --color-link:        var(--eblue);
   --color-link-hover:  var(--eblue);
   --color-visited:     var(--ebluelight);
@@ -64,7 +64,7 @@
 
 /* --- BASE / RESET --------------------------------------------- */
 body {
-  font-family:     var(--font-family);
+  font-family:     monospace;
   margin:          auto;
   padding:         20px;
   max-width:       var(--max-width);
@@ -90,7 +90,6 @@ a {
 a:hover {
   color:           var(--color-link-hover);
   text-decoration: underline;
-  font-weight:     550;
 }
 a:visited {
   color: var(--color-visited);
@@ -127,13 +126,17 @@ header {
   white-space:    nowrap;
   font-weight:    500;
 }
-.title h2:hover {
+.title h2 a:hover {
 	text-decoration: none;
 }
 
+a.title:hover {
+	text-decoration: none !important;
+}
+
 nav a {
-  margin-right: 8px;
-  font-size:    15px;
+  margin-right: 7px;
+  font-size:    16px;
   font-style:   italic;
   color:        var(--color-link);
 }
@@ -149,6 +152,7 @@ footer {
   padding:    25px;
   text-align: center;
   height:     50px;
+  background-color: var(--whitesmoke);
 }
 
 /* --- CODE ---------------------------------------------------- */
@@ -207,7 +211,7 @@ table.changelog td.timestamp a {
   text-decoration: none;
 }
 table.changelog td.timestamp a:hover {
-  color:       var(--color-link);
+  color:       var(--grey);
   text-decoration: underline;
   font-weight: 400;
 }
@@ -220,7 +224,7 @@ table.changelog td.post-title a {
 }
 table.changelog td.post-title a:hover {
   font-weight:     550;
-  color:           var(--color-heading);
+  color:           var(--darkgrey);
   text-decoration: underline;
 }
 
