@@ -1,287 +1,288 @@
-<style>
+/* ============================================================
+   CSV.MICRO.BLOG — CONSOLIDATED STYLESHEET
+   ============================================================ */
 
-  body {
-    font-family: monospace;
-    margin: auto;
-    padding: 20px;
-    max-width: 850px;
-	height: 100vh;
-    text-align: left;
-    background-color: #fff;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    color: #444;
-  }
+/* --- VARIABLES (LIGHT) ---------------------------------------- */
+:root {
+  --timestamp-width: 100px;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  strong,
-  b {
-    color: #111;
-  }
+  --color-bg:          #fff;
+  --color-text:        #000;
+  --color-heading:     #111;
+  --color-link:        #3273dc;
+  --color-link-hover:  #3273dc;
+  --color-visited:     #8b6fcb;
+  --color-brand-bg:    #f5e642;
+  --color-timestamp:   #94a3b8;
+  --color-code-bg:     #f2f2f2;
+  --color-quote-border:#999;
+  --color-quote-text:  #222;
+  --color-helptext:    #777;
+  --color-error:       #eba613;
+  --color-microblog-border: #444;
+  --color-microblog-time:   #444;
 
-  a {
-	color: #3273dc;
-	text-decoration: none;
-  }
-  a:hover {
-    color: #3273dc;
-	text-decoration: underline;
-	font-weight: 600;
-    /*color: #ff5e6c;*/
-  }
-
-  .title h2 {
-    text-decoration: none;
-    border: 0;
-	white-space: nowrap;
-	font-weight: 500 !important;
-  }
-  
-  .title:hover {
-	  text-decoration: none;
-  }
-
-  .title span {
-    font-weight: 400 !important;
-  }
-
-  
-  
-  nav a {
-    margin-right: 10px;
-	color: #3273dc;
-  }
-
-  textarea {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  input {
-    font-size: 13px;
-  }
-
-  content {
-    line-height: 1.5;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  code {
-    padding: 2px 5px;
-    background-color: #f2f2f2;
-  }
-
-  pre code {
-    color: #222;
-    display: block;
-    padding: 20px;
-    white-space: pre-wrap;
-    font-size: 14px;
-    overflow-x: auto;
-  }
-
-  div.highlight pre {
-    background-color: initial;
-    color: initial;
-  }
-
-  div.highlight code {
-    background-color: unset;
-    color: unset;
-  }
-
-  blockquote {
-    border-left: 1px solid #999;
-    color: #222;
-    padding-left: 20px;
-    font-style: italic;
-  }
-
-  
-
-  .helptext {
-    color: #777;
-    font-size: small;
-  }
-
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
-
-  /* blog posts */
-  ul.blog-posts {
-    list-style-type: none;
-    padding: unset;
-  }
-
-  ul.blog-posts li {
-    display: flex;
-  }
-
-  ul.blog-posts li span {
-    flex: 0 0 130px;
-  }
-
-  ul.blog-posts li a:visited {
-    color: #8b6fcb;
-  }
-  
-  /* changelog table */
-table.changelog {
-  width: 100%;
-  border-collapse: collapse;
+  --font-family:       monospace;
+  --max-width:         850px;
+  --mobile-breakpoint: 749px;
 }
 
+/* --- VARIABLES (DARK) ----------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:          #111;
+    --color-text:        #eee;
+    --color-heading:     #fff;
+    --color-link:        #8cc2dd;
+    --color-link-hover:  #8cc2dd;
+    --color-visited:     #8b6fcb;
+    --color-brand-bg:    #b8a800;
+    --color-timestamp:   #6b7a8d;
+    --color-code-bg:     #222;
+    --color-quote-border:#666;
+    --color-quote-text:  #ccc;
+    --color-helptext:    #aaa;
+    --color-microblog-border: #ddd;
+    --color-microblog-time:   #ddd;
+  }
+}
+
+/* --- BASE / RESET --------------------------------------------- */
+body {
+  font-family:     var(--font-family);
+  margin:          auto;
+  padding:         20px;
+  max-width:       var(--max-width);
+  min-height:      100vh;
+  display:         flex;
+  flex-direction:  column;
+  text-align:      left;
+  background-color:var(--color-bg);
+  color:           var(--color-text);
+  word-wrap:       break-word;
+  overflow-wrap:   break-word;
+  line-height:     1.5;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+  color: var(--color-heading);
+}
+
+a {
+  color:           var(--color-link);
+  text-decoration: none;
+}
+a:hover {
+  color:           var(--color-link-hover);
+  text-decoration: underline;
+  font-weight:     550;
+}
+a:visited {
+  color: var(--color-visited);
+}
+
+img, video {
+  max-width: 100%;
+  height:    auto;
+}
+
+textarea {
+  width:     100%;
+  font-size: 14px;
+}
+input {
+  font-size: 13px;
+}
+
+/* --- HEADER --------------------------------------------------- */
+.made-with {
+  display: none;
+}
+
+header {
+  display:        block;
+  border-bottom:  0;
+  padding-bottom: 8px;
+  margin-left:    var(--timestamp-width);
+}
+
+.title h2 {
+  margin-bottom:  0;
+  border:         0;
+  white-space:    nowrap;
+  font-weight:    500;
+}
+
+nav a {
+  margin-right: 10px;
+  font-size:    15px;
+  font-style:   italic;
+  color:        var(--color-link);
+  outline:      0;
+}
+
+/* --- MAIN / FOOTER -------------------------------------------- */
+main {
+  margin-top: 15px;
+  flex:       1;
+}
+
+footer {
+  padding:    25px;
+  text-align: center;
+  height:     50px;
+}
+
+/* --- CODE ---------------------------------------------------- */
+code {
+  padding:          2px 5px;
+  background-color: var(--color-code-bg);
+}
+pre code {
+  color:            var(--color-text);
+  display:          block;
+  padding:          20px;
+  white-space:      pre-wrap;
+  font-size:        14px;
+  overflow-x:       auto;
+  background-color: var(--color-code-bg);
+}
+div.highlight pre {
+  background-color: initial;
+  color:            initial;
+}
+div.highlight code {
+  background-color: unset;
+  color:            unset;
+}
+
+/* --- BLOCKQUOTE ---------------------------------------------- */
+blockquote {
+  border-left: 1px solid var(--color-quote-border);
+  color:       var(--color-quote-text);
+  padding-left: 20px;
+  font-style:  italic;
+}
+
+/* --- CHANGELOG TABLE ----------------------------------------- */
+table.changelog {
+  width:           100%;
+  border-collapse: collapse;
+}
 table.changelog tr {
   border-bottom: 0;
 }
-
 table.changelog td {
-  padding: 0.5rem 0;
-  vertical-align: center;
+  padding:        0.5rem 0;
+  vertical-align: middle;
 }
-
 table.changelog td.timestamp {
-  width: auto !important;
+  width:      var(--timestamp-width);
   white-space: nowrap;
-  font-size: 12px;
-  font-weight: 400;
-  color: #666 !important;
-  
 }
-
 table.changelog td.timestamp a {
-  font-size: 14px;
+  font-size:   14px;
   font-weight: 400;
-  color: #666 !important;
-  
+  color:       var(--color-timestamp);
+  text-decoration: none;
 }
-
+table.changelog td.timestamp a:hover {
+  color:       var(--color-timestamp);
+  text-decoration: none;
+  font-weight: 400;
+}
 table.changelog td.post-title a {
   text-decoration: none;
-  font-size: 14px;
-  color: #222;
-  font-weight: 550;
-  text-transform: uppercase;
+  font-size:       14px;
+  color:           var(--color-heading);
+  font-weight:     550;
+  text-transform:  uppercase;
 }
-
 table.changelog td.post-title a:hover {
-  font-weight: 600;
-  color: #111;
+  font-weight:     550;
+  color:           var(--color-heading);
   text-decoration: underline;
-  
 }
 
-@media (prefers-color-scheme: dark) {
+/* --- MICROBLOG CONVERSATION ---------------------------------- */
+.microblog_conversation {
+  margin-top:  50px;
+  padding-top: 20px;
+  border-top:  1px dashed var(--color-microblog-border);
+}
+.microblog_post {
+  padding-top:    20px;
+  padding-bottom: 20px;
+}
+.microblog_avatar {
+  border-radius:  10px;
+  vertical-align: top;
+}
+.microblog_time {
+  font-size:  13px;
+  padding-top:10px;
+}
+.microblog_time a {
+  color:           var(--color-microblog-time);
+  text-decoration: none;
+}
+
+/* --- UTILITY ------------------------------------------------- */
+.helptext {
+  color:     var(--color-helptext);
+  font-size: small;
+}
+.errorlist {
+  color:     var(--color-error);
+  font-size: small;
+}
+
+/* --- BLOG POSTS (legacy — may be unused if changelog replaced) */
+/*
+ul.blog-posts {
+  list-style-type: none;
+  padding:         unset;
+}
+ul.blog-posts li {
+  display: flex;
+}
+ul.blog-posts li span {
+  flex: 0 0 130px;
+}
+ul.blog-posts li a:visited {
+  color: var(--color-visited);
+}
+*/
+
+/* --- MOBILE -------------------------------------------------- */
+@media (max-width: 749px) {
+  :root {
+    --timestamp-width: 0px;
+  }
+  body {
+    margin-left: 20px;
+  }
+  header {
+    margin-left: 0;
+  }
+  nav {
+    margin-left: 0;
+  }
+  table.changelog {
+    display: block;
+  }
   table.changelog tr {
-    border-bottom: 0;
+    display: block;
   }
-  
-  table.changelog td.timestamp {
-    color: blue;
+  table.changelog td {
+    display: block;
+    padding: 0;
   }
-  
+  table.changelog td.timestamp a {
+    font-size:    11.5px;
+    margin-bottom: 2px;
+  }
   table.changelog td.post-title {
-	  color: white;
+    margin: 2px 0 0.5rem;
   }
 }
-
-  .microblog_conversation {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px dashed white;
-  }
-
-  .microblog_post {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .microblog_avatar {
-    border-radius: 10px;
-    vertical-align: top;
-  }
-
-  .microblog_time {
-    font-size: 13px;
-    padding-top: 10px;
-  }
-
-  .microblog_time a {
-    color:#444;
-    text-decoration: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #111;
-      color: white;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: white;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: black;
-    }
-
-    pre code {
-      color: white;
-    }
-
-    blockquote {
-      color: white;
-    }
-
-    textarea,
-    input {
-      background-color: #111;
-      color: white;
-    }
-
-    .helptext {
-      color: white;
-    }
-
-    .microblog_conversation {
-      border-top: 1px dashed white;
-    }
-
-    .microblog_time a {
-      color: white;
-    }
-  }
-
-</style>
