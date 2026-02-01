@@ -26,7 +26,7 @@
   --color-heading:     var(--charcoal);
   --color-link:        var(--eblue);
   --color-link-hover:  var(--eblue);
-  --color-visited:     var(--ebluelight);
+  --color-visited:     var(--eblue);
   --color-brand-bg:    var(--highlighter);
   --color-timestamp:   var(--lightgrey);
   --color-code-bg:     #f2f2f2;
@@ -233,8 +233,18 @@ table.changelog td.post-title a:hover {
 @media (min-width: 750px) {
   body:not(:has(.changelog)) header {
     margin-left: 0;
-  }
+	}
+	main {
+		margin-top: 6px;
+	}
+	h-entry  h1.p-name {
+  		margin-top: 5px;	
+	}
+	i.h-entry {
+		font-weight: 525;
+	}
 }
+
 
 
 /* --- MICROBLOG CONVERSATION ---------------------------------- */
