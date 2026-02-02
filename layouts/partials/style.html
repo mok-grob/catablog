@@ -191,12 +191,25 @@ footer {
   padding:    25px;
   height:     50px;
   background-color: var(--color-bg);
-  display: block;
+  display: flex;
+  align-items: top;
 }
 
-footer.title {
-	
+footer .title a {
+	font-size: 16px;
+	color: var(--color-post-title);
+	font-weight: 400;
+	margin-right: 15px;
 }
+
+footer .title a:hover {
+	text-decoration: none;
+}
+
+footer .nav {
+	font-size: 16px;
+}
+
 
 /* --- CODE ---------------------------------------------------- */
 code {
