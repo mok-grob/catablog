@@ -328,9 +328,7 @@ ul.blog-posts li a:visited {
   nav {
     margin-left: 0;
   }
-  .sup-text-desktop {
-	display: none;
-}
+  
   table.changelog {
     display: block;
 	width: 100%;
@@ -350,12 +348,19 @@ ul.blog-posts li a:visited {
     margin: 2px 0 4px;
 	width: 100%;
   }
+  .sup-text-desktop {
+	display: none;
+  }
+  .sup-text-mobile {
+	display: inline;
+	white-space: wrap;
+  }
   table.changelog .sup-text {
 	  max-width: none;
 	  width: 100%;
-	  margin-left: none !important;
+	  padding-left: none !important;
 	  margin-bottom: .75rem;
-	  line-height: 1.1;
+	  line-height: 1.25;
   }
 }
 
