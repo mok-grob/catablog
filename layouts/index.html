@@ -17,6 +17,15 @@
 				<a href="{{ .Permalink }}" class="p-name">Untitled</a>
 			{{ end }}
 		</td>
+		<td class="sup-text">
+  			{{ if .Title }}
+   			{{ if .Params.summary }}
+      			{{ .Params.summary }}
+    		{{ else }}
+     	 {{ .Content }}
+    {{ end }}
+  {{ end }}
+</td>
 	</tr>
 	{{ end }}
 </table>
