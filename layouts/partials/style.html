@@ -7,10 +7,10 @@
 
 :root {
   --black: black;
-  --darkgrey: #050505;
-  --charcoal: #101010;
-  --medgrey: #505050;
-  --grey: #696969;
+  --superdarkgrey: #050505;
+  --darkgrey: #101010;
+  --grey: #505050;
+  --medgrey: #696969;
   --lightgrey: #B0B0B0;
   --silver: silver;
   --whitesmoke: #f2f2f2;
@@ -21,14 +21,27 @@
  	
   --timestamp-width: 100px;
 
-  --color-bg:          var(--white);
-  --color-text:        var(--medgrey);
-  --color-heading:     var(--charcoal);
-  --color-link:        var(--eblue);
-  --color-link-hover:  var(--eblue);
-  --color-visited:     var(--eblue);
-  --color-brand-bg:    var(--highlighter);
-  --color-timestamp:   var(--lightgrey);
+  --color-bg:          		var(--white);
+  --color-text:        		var(--grey);
+  --color-heading:     		var(--darkgrey);
+  --color-link:        		var(--eblue);
+  --color-link-hover:  		var(--eblue);
+  --color-visited:     		var(--eblue);
+  --color-brand-bg:    		var(--highlighter);
+  
+  --color-title:           	var(--darkgrey);
+  --color-title-hover:   	var(--darkgrey);
+  --color-nav:   			var(--eblue);
+  --color-nav-hover:  		var(--eblue);
+  
+  --color-post-title:  		var(--darkgrey);
+  --color-post-hover:  		var(--superdarkgrey);
+  
+  --color-timestamp:   		var(--lightgrey);
+  --color-timestamp-hover: 	var(--grey);
+  
+  --color-sup-text:  		var(--grey);
+  
   --color-code-bg:     #f2f2f2;
   --color-quote-border:#999;
   --color-quote-text:  #222;
@@ -45,14 +58,28 @@
 /* --- VARIABLES (DARK) ----------------------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg:          var(--darkgrey);
+    --color-bg:          var(--superdarkgrey);
     --color-text:        var(--whitesmoke);
     --color-heading:     var(--white);
-    --color-link:        var(--ebluelight);
-    --color-link-hover:  var(--ebluelight);
-    --color-visited:     var(--ebluelight);
-    --color-brand-bg:    var(--highlighter);
-    --color-timestamp:   var(--grey);
+    --color-link:        var(--eblue);
+    --color-link-hover:  var(--eblue);
+    --color-visited:     var(--eblue);
+  
+	  
+  	--color-title:           	var(--white);
+ 	--color-title-hover:   		var(--white);
+ 	--color-nav:   				var(--eblue);
+ 	--color-nav-hover:  		var(--eblue);
+  
+ 	--color-post-title:  		var(--lightgrey);
+  	--color-post-hover:  		var(--whitesmoke);
+  
+  	--color-timestamp:   		var(--medgrey);
+  	--color-timestamp-hover: 	var(--lightgrey);
+  
+  	--color-sup-text:  			var(--medgrey);
+	
+    
     --color-code-bg:     #222;
     --color-quote-border:#666;
     --color-quote-text:  #ccc;
@@ -126,6 +153,7 @@ header {
   border:         0;
   white-space:    nowrap;
   font-weight:    525;
+  color: 		  var(--color-title);
 }
 .title h2 a:hover {
 	text-decoration: none;
@@ -139,7 +167,12 @@ nav a {
   margin-right: 7px;
   font-size:    14px;
   font-style:   none;
-  color:        var(--color-link);
+  color:        var(--color-nav);
+}
+
+nav a:hover {
+	text-decoration: underline;
+	color: var(--color-nav-hover);
 }
 
 /* --- MAIN / FOOTER -------------------------------------------- */
@@ -153,7 +186,7 @@ main {
 footer {
   padding:    25px;
   height:     50px;
-  background-color: transparent;
+  background-color: var(--color-bg);
 }
 
 /* --- CODE ---------------------------------------------------- */
@@ -190,9 +223,6 @@ blockquote {
 
 
 /* --- CHANGELOG TABLE ----------------------------------------- */
-.sup-text-mobile {
-	display: none;
-}
 table.changelog {
   width:           100%;
   border-collapse: collapse;
@@ -205,50 +235,50 @@ table.changelog td {
   vertical-align: middle;
 }
 table.changelog td.timestamp {
-  width:      var(--timestamp-width);
+  width:       var(--timestamp-width);
   white-space: nowrap;
 }
 table.changelog td.timestamp a {
-  font-size:   13px;
+  font-size:   14px;
   font-weight: 400;
   color:       var(--color-timestamp);
   text-decoration: none;
 }
 table.changelog td.timestamp a:hover {
-  color:       var(--grey);
+  color:       var(--color-timestamp-hover);
   text-decoration: none;
   font-weight: 400;
 }
 table.changelog td.post-title {
-	max-width: 400px;
+	max-width: auto;
 	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 table.changelog td.post-title a {
   text-decoration: none;
-  font-size:       13px;
-  color:           var(--color-heading);
+  font-size:       14px;
+  color:           var(--color-post-title);
   font-weight:     500;
   text-transform:  uppercase;
 }
 table.changelog td.post-title a:hover {
   font-weight:     550;
-  color:           var(--darkgrey);
+  color:           var(--color-post-hover);
   text-decoration: underline;
 }
-
+.sup-text-mobile {
+	display: none;
+}
 .changelog .sup-text {
   width: 100%;
   font-size: 13px;
   font-style: italic;
-  color: var(lightgrey);
+  color: var(--color-sup-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: .75rem;
   max-width: 0;
-  font-weight: 425 !important;
+  font-weight: 400 !important;
 }
 
 /* --- STATIC PAGES -------------------------------------------- */
@@ -354,11 +384,12 @@ ul.blog-posts li a:visited {
   .sup-text-mobile {
 	display: inline;
 	white-space: wrap;
+	padding-left: 0;
   }
   table.changelog .sup-text {
 	  max-width: none;
 	  width: 100%;
-	  padding-left: none !important;
+	  padding-left: 0 !important;
 	  margin-bottom: .75rem;
 	  line-height: 1.25;
   }
