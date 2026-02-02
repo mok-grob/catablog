@@ -175,16 +175,18 @@ nav a:hover {
 	color: var(--color-nav-hover);
 }
 
-.h-entry {
-	border-top: .75px solid var(--color-timestamp)
-}
-
 /* --- MAIN / FOOTER -------------------------------------------- */
-
 main {
   margin-top: 15px;
   flex:       1;
   background-color: var(--color-bg);
+}
+.h-entry {
+	border-top: .75px solid var(--color-timestamp);
+}
+
+.h-entry .p-name .u-url {
+	margin: 1.5rem 0;
 }
 
 footer {
@@ -311,9 +313,6 @@ table.changelog td.post-title a:hover {
   body:not(:has(.changelog)) header {
     margin-left: 0;
 	}
-	.p-name {
-  		margin: 5px 0 2px;	
-	}
 }
 
 
@@ -382,18 +381,20 @@ ul.blog-posts li a:visited {
   nav {
     margin-left: 0;
   }
+  footer {
+	  padding-left: 0;
+	  margin-left: 0;
+  }
   
   table.changelog {
     display: block;
 	width: 100%;
   }
   
-  .h-entry {
-	  border-bottom: 0;
-  }
   table.changelog tr {
-    display: block;
+  border-bottom: 0;
   }
+  
   table.changelog td {
     display: block;
     padding: 0;
