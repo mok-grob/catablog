@@ -20,9 +20,9 @@
 		<td class="sup-text">
   {{ if .Title }}
     {{ if .Params.summary }}
-      {{ .Params.summary | plainify | truncate 150 }}
+      {{ .Params.summary | plainify }}
     {{ else }}
-      {{ .Content | plainify | truncate 150 }}
+      {{ .Content | plainify }}
     {{ end }}
   {{ end }}
 </td>
