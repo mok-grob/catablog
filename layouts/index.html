@@ -20,10 +20,10 @@
   {{ if .Title }}
     {{ if .Params.summary }}
       <span class="sup-text-desktop">{{ .Params.summary | plainify }}</span>
-      <span class="sup-text-mobile">{{ .Params.summary | plainify | truncate 80 }}</span>
+      <span class="sup-text-mobile">{{ .Params.summary | plainify | truncate 100 }}</span>
     {{ else }}
       <span class="sup-text-desktop">{{ .Content | plainify }}</span>
-      <span class="sup-text-mobile">{{ .Content | plainify | truncate 80 }}</span>
+      <span class="sup-text-mobile">{{ .Content | plainify | truncate 100 }}</span>
     {{ end }}
   {{ end }}
 </td>
