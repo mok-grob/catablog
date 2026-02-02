@@ -190,6 +190,9 @@ blockquote {
 
 
 /* --- CHANGELOG TABLE ----------------------------------------- */
+.sup-text-mobile {
+	display: none;
+}
 table.changelog {
   width:           100%;
   border-collapse: collapse;
@@ -325,6 +328,9 @@ ul.blog-posts li a:visited {
   nav {
     margin-left: 0;
   }
+  .sup-text-desktop {
+	display: none;
+}
   table.changelog {
     display: block;
 	width: 100%;
@@ -341,11 +347,15 @@ ul.blog-posts li a:visited {
     margin-bottom: 2px;
   }
   table.changelog td.post-title {
-    margin: 2px 0 0.25rem;
+    margin: 2px 0 4px;
 	width: 100%;
   }
   table.changelog .sup-text {
 	  max-width: none;
+	  width: 100%;
+	  margin-left: none !important;
+	  margin-bottom: .75rem;
+	  line-height: 1.1;
   }
 }
 

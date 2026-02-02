@@ -16,13 +16,14 @@
 			{{ else }}
 				<a href="{{ .Permalink }}" class="p-name">Untitled</a>
 			{{ end }}
-		</td>
 		<td class="sup-text">
   {{ if .Title }}
     {{ if .Params.summary }}
-      {{ .Params.summary | plainify }}
+      <span class="sup-text-desktop">{{ .Params.summary | plainify }}</span>
+      <span class="sup-text-mobile">{{ .Params.summary | plainify | truncate 80 }}</span>
     {{ else }}
-      {{ .Content | plainify }}
+      <span class="sup-text-desktop">{{ .Content | plainify }}</span>
+      <span class="sup-text-mobile">{{ .Content | plainify | truncate 80 }}</span>
     {{ end }}
   {{ end }}
 </td>
