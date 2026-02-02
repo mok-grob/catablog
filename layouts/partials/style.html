@@ -148,11 +148,16 @@ header {
   background-color: var(--color-bg);
 }
 
+.title {
+	margin-left: 0;
+	border: 0;
+}
 .title h2 {
   margin-bottom:  0;
   white-space:    nowrap;
   font-weight:    525;
   color: 		  var(--color-title);
+  font-size: 	  17px;
 }
 .title h2 a:hover {
 	text-decoration: none;
@@ -164,7 +169,7 @@ a.title:hover {
 
 nav a {
   margin-right: 7px;
-  font-size:    14px;
+  font-size:    15px;
   font-style:   none;
   color:        var(--color-nav);
 }
@@ -193,7 +198,7 @@ footer {
   height:     50px;
   background-color: var(--color-bg);
   display: flex;
-  align-items: top;
+  align-items: middle;
   justify-content: right;
 }
 
@@ -376,6 +381,9 @@ ul.blog-posts li a:visited {
   }
   header {
     margin-left: 0;
+  }
+  .title {
+	  font-size: 18px;
   }
   nav {
     margin-left: 0;
