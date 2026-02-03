@@ -172,10 +172,11 @@ a.title:hover {
 }
 
 nav a {
-  margin-right: 1rem;
+  margin-right: .5rem;
   font-size:    15px;
   font-style:   none;
   color:        var(--color-nav);
+  text-transform: uppercase;
 }
 
 nav a:hover {
@@ -305,7 +306,7 @@ table.changelog td.post-title a:hover {
 }
 .changelog .sup-text {
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   font-style: italic;
   color: var(--color-sup-text);
   white-space: nowrap;
@@ -429,10 +430,13 @@ ul.blog-posts li a:visited {
   table.changelog td.post-title {
     margin: 2px 0 4px;
 	width: 100%;
+  }
+  table.changelog td.post-title a {
 	font-size: 17px;
 	font-weight: 575;
 	color: var(--color-post-title);
   }
+  
   .sup-text-desktop {
 	display: none;
   }
