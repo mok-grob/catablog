@@ -61,9 +61,9 @@
     --color-bg:          var(--superdarkgrey);
     --color-text:        var(--whitesmoke);
     --color-heading:     var(--white);
-    --color-link:        var(--eblue);
-    --color-link-hover:  var(--eblue);
-    --color-visited:     var(--eblue);
+    --color-link:        var(--highlighter);
+    --color-link-hover:  var(--highlighter);
+    --color-visited:     var(--highlighter);
   
 	  
   	--color-title:           	var(--white);
@@ -314,9 +314,13 @@ table.changelog td.post-title a:hover {
 /* --- STATIC PAGES -------------------------------------------- */
 /* single post: remove header indent */
 @media (min-width: 750px) {
-  body:not(:has(.changelog)) header {
+  body:not(:has(.changelog)) 
+  header {
     margin-left: 0;
-	}
+  }
+  .e-content {
+	  font-size: 14px;
+  }
 }
 
 
@@ -383,10 +387,11 @@ ul.blog-posts li a:visited {
     margin-left: 0;
   }
   .title {
-	  font-size: 18px;
+	  font-size: 25px;
   }
   nav {
-    margin-left: 0;
+    font-size: 16px;
+	margin-left: 0;
   }
   footer {
 	  padding-left: 0 !important;
@@ -421,6 +426,7 @@ ul.blog-posts li a:visited {
   table.changelog td.post-title {
     margin: 2px 0 4px;
 	width: 100%;
+	font-size: 15px;
   }
   .sup-text-desktop {
 	display: none;
@@ -434,7 +440,7 @@ ul.blog-posts li a:visited {
 	  max-width: none;
 	  width: 100%;
 	  padding-left: 0 !important;
-	  font-size: 12px;
+	  font-size: 14px;
 	  line-height: 1.5;
 	  margin-bottom: 1rem;
   }
