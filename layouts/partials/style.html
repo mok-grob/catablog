@@ -68,13 +68,13 @@
 	  
   	--color-title:           	var(--white);
  	--color-title-hover:   		var(--white);
- 	--color-nav:   				var(--eblue);
- 	--color-nav-hover:  		var(--eblue);
+ 	--color-nav:   				var(--highlighter);
+ 	--color-nav-hover:  		var(--highlighter);
   
- 	--color-post-title:  		var(--lightgrey);
-  	--color-post-hover:  		var(--whitesmoke);
+ 	--color-post-title:  		var(--white);
+  	--color-post-hover:  		var(--white);
   
-  	--color-timestamp:   		var(--medgrey);
+  	--color-timestamp:   		var(--lightgrey);
   	--color-timestamp-hover: 	var(--lightgrey);
   
   	--color-sup-text:  			var(--medgrey);
@@ -311,6 +311,8 @@ table.changelog td.post-title a:hover {
   font-weight: 400 !important;
 }
 
+
+
 /* --- STATIC PAGES -------------------------------------------- */
 /* single post: remove header indent */
 @media (min-width: 750px) {
@@ -318,9 +320,7 @@ table.changelog td.post-title a:hover {
   header {
     margin-left: 0;
   }
-  .e-content {
-	  font-size: 14px;
-  }
+  
 }
 
 
@@ -386,12 +386,15 @@ ul.blog-posts li a:visited {
   header {
     margin-left: 0;
   }
-  .title {
+  .title h2 a {
 	  font-size: 25px;
   }
   nav {
-    font-size: 16px;
 	margin-left: 0;
+	display: block;
+  }
+  nav a {
+    font-size: 17px;
   }
   footer {
 	  padding-left: 0 !important;
@@ -454,6 +457,12 @@ ul.blog-posts li a:visited {
   }
   .footer-nav {
 	  font-size: 13px;
+  }
+  .e-content {
+	  font-size: 15px;	  
+  }
+  .h-entry .p-name h1 {
+	  font-size: 28px;
   }
 }
 
