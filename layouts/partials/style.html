@@ -110,6 +110,10 @@ h1, h2, h3, h4, h5, h6, strong, b {
   color: var(--color-heading);
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 550;
+}
+
 a {
   color:           var(--color-link);
   text-decoration: none;
@@ -311,7 +315,9 @@ table.changelog td.post-title a:hover {
   font-weight: 400 !important;
 }
 
-
+.e-content {
+	font-weight: 14px;
+}
 
 /* --- STATIC PAGES -------------------------------------------- */
 /* single post: remove header indent */
@@ -386,15 +392,15 @@ ul.blog-posts li a:visited {
   header {
     margin-left: 0;
   }
-  .title h2 a {
-	  font-size: 25px;
+  .title h2 {
+	  font-size: 23px;
   }
   nav {
 	margin-left: 0;
 	display: block;
   }
   nav a {
-    font-size: 17px;
+    font-size: 18px;
   }
   footer {
 	  padding-left: 0 !important;
@@ -430,6 +436,7 @@ ul.blog-posts li a:visited {
     margin: 2px 0 4px;
 	width: 100%;
 	font-size: 15px;
+	font-weight: 550;
   }
   .sup-text-desktop {
 	display: none;
@@ -443,13 +450,14 @@ ul.blog-posts li a:visited {
 	  max-width: none;
 	  width: 100%;
 	  padding-left: 0 !important;
-	  font-size: 14px;
+	  font-size: 15px;
 	  line-height: 1.5;
 	  margin-bottom: 1rem;
   }
   footer {
 	  justify-content: left;
 	  padding-left: 0;
+	  border-top: .75px solid var(--color-timestamp);
   }
   .footer-title {
 	  margin-left: 0;
@@ -462,7 +470,7 @@ ul.blog-posts li a:visited {
 	  font-size: 15px;	  
   }
   .h-entry .p-name h1 {
-	  font-size: 28px;
+	  font-size: 25px;
   }
 }
 
